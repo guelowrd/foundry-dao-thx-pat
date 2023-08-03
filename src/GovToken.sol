@@ -7,8 +7,12 @@ import {ERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20P
 import {ERC20Votes} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 
-contract MyToken is ERC20, ERC20Permit, ERC20Votes {
-    constructor() ERC20("MyToken", "MTK") ERC20Permit("MyToken") {}
+contract GovToken is ERC20, ERC20Permit, ERC20Votes {
+    constructor() ERC20("GovToken", "GOV") ERC20Permit("GovToken") {}
+
+    function mint(address to, uint256 amount) public {
+        _mint(to, amount);
+    }
 
     // The following functions are overrides required by Solidity.
 
